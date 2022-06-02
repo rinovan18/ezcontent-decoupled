@@ -9,20 +9,8 @@ require('dotenv').config({ path: '../.env' })
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
 
-  let diffPages = await graphql(`
+  let diffPages = await graphql(
     query pages {
-      article (sort: {order: DESC, fields: changed}) {
-        nodes {
-          id,
-          path {
-            alias
-          },
-          full_content,
-          internal {
-            type
-          }
-        }
-      },
       allNodeLandingPage (sort: {order: DESC, fields: changed}) {
         nodes {
           id,
@@ -36,7 +24,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
       },
     }
-  `);
+  );
 
   for(let key in diffPages.data) {
     let nodes = diffPages.data[key].nodes;
