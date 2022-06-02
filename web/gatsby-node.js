@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   let diffPages = await graphql(`
     query pages {
-      Article (sort: {order: DESC, fields: changed}) {
+      article (sort: {order: DESC, fields: changed}) {
         nodes {
           id,
           path {
