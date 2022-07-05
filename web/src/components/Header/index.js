@@ -4,6 +4,7 @@ import get from "lodash/get";
 export default props => {
   let headerData = get(props, "data.main");
   let subMenu;
+  
 
   if(headerData) {
     subMenu =  headerData.filter(function(item) {
@@ -18,6 +19,7 @@ export default props => {
   }
 
   return (
+    <>
     <nav className="navbar fixed-top navbar-expand-lg ezcontent-header">
       <div className="container">
         <a className="navbar-brand logo" href="/">
@@ -73,6 +75,7 @@ export default props => {
         </div>
       </div>
     </nav>
+    </>
   );
-
+  
 };
